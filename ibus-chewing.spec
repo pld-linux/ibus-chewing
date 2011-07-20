@@ -63,6 +63,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %find_lang %{name}
 
+%clean
+rm -rf $RPM_BUILD_ROOT
+
 %post
 %gconf_schema_install ibus-chewing.schemas
 
