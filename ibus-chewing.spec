@@ -2,7 +2,7 @@ Summary:	The Chewing engine for IBus input platform
 Summary(zh_TW):	IBus新酷音輸入法
 Name:		ibus-chewing
 Version:	1.3.9.2
-Release:	0.2
+Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://ibus.googlecode.com/files/%{name}-%{version}-Source.tar.gz
