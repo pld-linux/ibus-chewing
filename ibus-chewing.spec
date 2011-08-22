@@ -1,5 +1,5 @@
 Summary:	The Chewing engine for IBus input platform
-Summary(zh_TW):	IBus新酷音輸入法
+Summary(zh_TW.UTF-8):	IBus新酷音輸入法
 Name:		ibus-chewing
 Version:	1.3.9.2
 Release:	1
@@ -35,7 +35,7 @@ keyboard layout, such as standard (DaChen), IBM, Gin-Yeah, Eten, Eten
 
 Chewing also support toned Hanyu pinyin input.
 
-%description -l zh_TW
+%description -l zh_TW.UTF-8
 IBus-chewing 是新酷音輸入法的IBus前端。
 新酷音輸入法是個智慧型注音輸入法，支援多種鍵盤布局，諸如：
 標準注音鍵盤、IBM、精業、倚天、倚天26鍵、許氏、Dvorak、
