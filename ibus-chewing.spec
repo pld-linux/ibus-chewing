@@ -2,12 +2,13 @@ Summary:	The Chewing engine for IBus input platform
 Summary(pl.UTF-8):	Silnik Chewing dla platformy wprowadzania znaków IBus
 Summary(zh_TW.UTF-8):	IBus新酷音輸入法
 Name:		ibus-chewing
-Version:	1.4.2
-Release:	2
+Version:	1.4.3
+Release:	1
 License:	GPL v2+
 Group:		Libraries
+#Source0Download: http://code.google.com/p/ibus/downloads/list
 Source0:	http://ibus.googlecode.com/files/%{name}-%{version}-Source.tar.gz
-# Source0-md5:	67d944ddfb7dd4eb325967ce43390092
+# Source0-md5:	20b1d553ba14cecabcf7418e91da353b
 URL:		http://code.google.com/p/ibus/
 BuildRequires:	GConf2-devel
 BuildRequires:	cmake >= 2.6.2
