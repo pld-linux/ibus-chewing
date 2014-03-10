@@ -2,13 +2,13 @@ Summary:	The Chewing engine for IBus input platform
 Summary(pl.UTF-8):	Silnik Chewing dla platformy wprowadzania znaków IBus
 Summary(zh_TW.UTF-8):	IBus新酷音輸入法
 Name:		ibus-chewing
-Version:	1.4.3
+Version:	1.4.7
 Release:	1
 License:	GPL v2+
 Group:		Libraries
 #Source0Download: http://code.google.com/p/ibus/downloads/list
 Source0:	http://ibus.googlecode.com/files/%{name}-%{version}-Source.tar.gz
-# Source0-md5:	20b1d553ba14cecabcf7418e91da353b
+# Source0-md5:	d15b276e88095996c599bc5c011dba26
 URL:		http://code.google.com/p/ibus/
 BuildRequires:	GConf2-devel
 BuildRequires:	cmake >= 2.6.2
@@ -61,6 +61,9 @@ Dvorak許氏 及大千26鍵。
 
 %{__make}
 
+# *.po files not compiled by default, but required on install(?)
+%{__make} -C po translations
+
 %install
 rm -rf $RPM_BUILD_ROOT
 %{__make} install \
@@ -68,6 +71,14 @@ rm -rf $RPM_BUILD_ROOT
 
 # We install document using %doc
 %{__rm} -r $RPM_BUILD_ROOT%{_docdir}
+
+%{__mv} $RPM_BUILD_ROOT%{_localedir}/{de_DE,de}
+%{__mv} $RPM_BUILD_ROOT%{_localedir}/{es_ES,es}
+%{__mv} $RPM_BUILD_ROOT%{_localedir}/{fr_FR,fr}
+%{__mv} $RPM_BUILD_ROOT%{_localedir}/{it_IT,it}
+%{__mv} $RPM_BUILD_ROOT%{_localedir}/{ja_JP,ja}
+%{__mv} $RPM_BUILD_ROOT%{_localedir}/{ko_KR,ko}
+%{__mv} $RPM_BUILD_ROOT%{_localedir}/{uk_UA,uk}
 
 %find_lang %{name}
 
