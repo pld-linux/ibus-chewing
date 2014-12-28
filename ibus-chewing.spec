@@ -12,7 +12,7 @@ Source0:	http://ibus.googlecode.com/files/%{name}-%{version}-Source.tar.gz
 URL:		http://code.google.com/p/ibus/
 BuildRequires:	GConf2-devel
 BuildRequires:	cmake >= 2.6.2
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gob2 >= 2.0.16
 BuildRequires:	gtk+2-devel >= 2.0
 BuildRequires:	ibus-devel >= 1.4
