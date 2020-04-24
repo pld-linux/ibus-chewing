@@ -2,16 +2,15 @@ Summary:	The Chewing engine for IBus input platform
 Summary(pl.UTF-8):	Silnik Chewing dla platformy wprowadzania znaków IBus
 Summary(zh_TW.UTF-8):	IBus新酷音輸入法
 Name:		ibus-chewing
-Version:	1.4.14
+Version:	1.6.1
 Release:	1
 License:	GPL v2+
 Group:		Libraries
 #Source0Download: https://github.com/definite/ibus-chewing/releases
 Source0:	https://github.com/definite/ibus-chewing/archive/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	cc2dd8448adeaa740e2ca3f5807e3450
-Patch0:		%{name}-format.patch
+# Source0-md5:	65a947645ceaef03fc18cd6ebbeddb22
 URL:		http://chewing.im/projects/ibus-chewing
-BuildRequires:	cmake >= 2.6.2
+BuildRequires:	cmake >= 2.8.0
 BuildRequires:	cmake-fedora-modules
 BuildRequires:	gettext-tools
 BuildRequires:	gob2 >= 2.0.16
@@ -54,7 +53,6 @@ Dvorak許氏 及大千26鍵。
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %cmake \
@@ -86,7 +84,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog README RELEASE-NOTES.txt USER-GUIDE
+%doc AUTHORS ChangeLog README.md RELEASE-NOTES.txt USER-GUIDE
 %attr(755,root,root) %{_libexecdir}/ibus-engine-chewing
 %attr(755,root,root) %{_libexecdir}/ibus-setup-chewing
 %{_datadir}/%{name}
