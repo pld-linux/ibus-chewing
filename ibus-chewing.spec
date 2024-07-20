@@ -2,28 +2,29 @@ Summary:	The Chewing engine for IBus input platform
 Summary(pl.UTF-8):	Silnik Chewing dla platformy wprowadzania znaków IBus
 Summary(zh_TW.UTF-8):	IBus新酷音輸入法
 Name:		ibus-chewing
-Version:	1.6.2
+Version:	2.0.0
 Release:	1
 License:	GPL v2+
 Group:		Libraries
 #Source0Download: https://github.com/definite/ibus-chewing/releases
-Source0:	https://github.com/definite/ibus-chewing/archive/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	7e8b6db0ff01c5c8c1fcfa50d9b81f54
+Source0:	https://github.com/definite/ibus-chewing/releases/download/v%{version}/%{name}-%{version}-Source.tar.xz
+# Source0-md5:	e154ed095a769425dec7868f3924728a
 URL:		https://chewing.im/projects/ibus-chewing
-BuildRequires:	cmake >= 2.8.0
-BuildRequires:	cmake-fedora-modules
+BuildRequires:	cmake >= 3.21.0
 BuildRequires:	gettext-tools
-BuildRequires:	gob2 >= 2.0.16
 BuildRequires:	glib2-devel >= 1:2.26
-BuildRequires:	gtk+3-devel >= 3.0
-BuildRequires:	ibus-devel >= 1.4
-BuildRequires:	libchewing-devel >= 0.3.3
+BuildRequires:	gtk4-devel >= 4.0
+BuildRequires:	ibus-devel >= 1.5.11
+BuildRequires:	libadwaita-devel
+BuildRequires:	libchewing-devel >= 0.5.1
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.604
+BuildRequires:	tar >= 1:1.22
 BuildRequires:	xorg-lib-libX11-devel
+BuildRequires:	xz
 Requires(post,preun):	glib2 >= 1:2.26
-Requires:	ibus >= 1.4
-Requires:	libchewing >= 0.3.3
+Requires:	ibus >= 1.5.11
+Requires:	libchewing >= 0.5.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_libexecdir	%{_libdir}/ibus
@@ -52,21 +53,17 @@ Dvorak許氏 及大千26鍵。
 本輸入法也同時支援帶調漢語拼音輸入。
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}-Source
 
 %build
-%cmake \
-	-DLIBEXEC_DIR=%{_libexecdir}
+%cmake -B build
 
-%{__make}
-
-# *.po files not compiled by default, but required on install(?)
-%{__make} -C po translations
+%{__make} -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
+%{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 # We install document using %doc
@@ -85,7 +82,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog README.md RELEASE-NOTES.txt USER-GUIDE
+%doc AUTHORS CHANGELOG.md ChangeLog-1.x README.md USER-GUIDE
 %attr(755,root,root) %{_libexecdir}/ibus-engine-chewing
 %attr(755,root,root) %{_libexecdir}/ibus-setup-chewing
 %{_datadir}/%{name}
