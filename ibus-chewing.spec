@@ -2,20 +2,20 @@ Summary:	The Chewing engine for IBus input platform
 Summary(pl.UTF-8):	Silnik Chewing dla platformy wprowadzania znaków IBus
 Summary(zh_TW.UTF-8):	IBus新酷音輸入法
 Name:		ibus-chewing
-Version:	1.6.1
+Version:	1.6.2
 Release:	1
 License:	GPL v2+
 Group:		Libraries
 #Source0Download: https://github.com/definite/ibus-chewing/releases
 Source0:	https://github.com/definite/ibus-chewing/archive/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	65a947645ceaef03fc18cd6ebbeddb22
-URL:		http://chewing.im/projects/ibus-chewing
+# Source0-md5:	7e8b6db0ff01c5c8c1fcfa50d9b81f54
+URL:		https://chewing.im/projects/ibus-chewing
 BuildRequires:	cmake >= 2.8.0
 BuildRequires:	cmake-fedora-modules
 BuildRequires:	gettext-tools
 BuildRequires:	gob2 >= 2.0.16
 BuildRequires:	glib2-devel >= 1:2.26
-BuildRequires:	gtk+2-devel >= 2.0
+BuildRequires:	gtk+3-devel >= 3.0
 BuildRequires:	ibus-devel >= 1.4
 BuildRequires:	libchewing-devel >= 0.3.3
 BuildRequires:	pkgconfig
@@ -65,6 +65,7 @@ Dvorak許氏 及大千26鍵。
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
